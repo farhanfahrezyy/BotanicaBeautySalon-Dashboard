@@ -10,7 +10,7 @@ class AddRoleToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Tambahkan kolom 'role' dengan nilai default 'user'
-            $table->enum('role', ['admin', 'user'])->default('user')->after('email_verified_at');
+            $table->enum('role', ['admin', 'user'])->default('user')->after('email_verified_at')->change();
         });
     }
 
