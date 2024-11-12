@@ -12,7 +12,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 #Dashboard
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     $type_menu = 'dashboard';
     return view('pages.admin.dashboard',compact('type_menu'));
 })->middleware('auth')->name('dashboard');
@@ -93,7 +93,7 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth'); // Logout route
 
 # Home
-Route::prefix('/home')->name('home')->group(function () {
+Route::prefix('/')->name('home')->group(function () {
     Route::get('/', [HomeController::class, 'index']);
 
 });
